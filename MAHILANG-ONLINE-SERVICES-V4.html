@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MAHILANG ONLINE SERVICES - सरकारी और उपयोगी ऑनलाइन सेवाओं की लिंक डायरेक्टरी।">
+<title>MAHILANG ONLINE SERVICES</title>
+<style>
+:root{--navy:#123b70;--blue:#1769aa;--bg:#f3f6fb;--ink:#172033;--muted:#65738a;--line:#e2e8f0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#102e57,#1769aa);color:#fff;padding:28px 16px 24px;text-align:center}
+.logo{font-size:12px;letter-spacing:3px;font-weight:800;opacity:.9}.brand{font-size:clamp(24px,6vw,38px);font-weight:900;margin:8px 0 4px}.tag{font-size:14px;opacity:.9}.credit{font-size:13px;font-weight:700;margin-top:10px;color:#eaf3ff}
+.wrap{max-width:1100px;margin:auto;padding:18px 14px 42px}
+.notice{background:#fff8e6;border:1px solid #f3d58a;border-radius:12px;padding:12px 14px;font-size:13px;color:#634b13;margin-bottom:16px}
+.search{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;font-size:16px;background:white;outline-color:var(--blue);margin-bottom:14px}
+h2{font-size:19px;margin:22px 0 12px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;display:flex;flex-direction:column;gap:9px;min-height:138px;box-shadow:0 2px 8px #13294b08}
+.card h3{font-size:15px;margin:0}.card p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.open{display:inline-block;margin-top:auto;text-decoration:none;color:white;background:var(--blue);padding:10px 12px;border-radius:9px;font-size:13px;font-weight:700;text-align:center;border:0;cursor:pointer}
+.open:hover{background:var(--navy)}.back{border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 14px;font-weight:700;color:var(--navy);cursor:pointer;margin-bottom:12px}
+.page-title{margin:8px 0 14px;font-size:22px}.count{font-size:12px;color:var(--muted);margin:-6px 0 14px}
+.empty{display:none;background:white;border-radius:12px;padding:24px;text-align:center;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:22px 10px}
+.hidden{display:none!important}
+
+.whatsapp-float{position:fixed;right:16px;bottom:18px;z-index:99;background:#168b48;color:#fff;text-decoration:none;
+display:flex;align-items:center;gap:9px;padding:12px 16px;border-radius:999px;font-weight:800;font-size:14px;
+box-shadow:0 5px 18px #102e5738;border:2px solid #fff}
+.whatsapp-float:hover{background:#106d38}
+.whatsapp-icon{width:22px;height:22px;display:inline-block}
+@media(max-width:420px){.whatsapp-float{right:12px;bottom:12px;padding:11px 14px;font-size:13px}}
+
+</style></head>
+<body>
+<header><div class="logo">आपकी डिजिटल सेवा निर्देशिका</div><div class="brand">MAHILANG ONLINE SERVICES</div><div class="tag">सभी उपयोगी ऑनलाइन सेवाएँ — एक ही जगह</div>
+<div class="credit">निर्माता: चोवाराम महिलांग</div></header>
+<main class="wrap">
+ <div class="notice"><b>जरूरी सूचना:</b> यह केवल वेबसाइटों की लिंक निर्देशिका है, सरकारी कार्यालय या CSC केंद्र नहीं। आवेदन, पात्रता, शुल्क और उपलब्धता संबंधित विभाग की वेबसाइट पर जाँचें। OTP, पासवर्ड या PIN किसी के साथ साझा न करें।</div>
+ <input id="search" class="search" type="search" placeholder="सेवा खोजें… जैसे आधार, किसान, जाति, बिजली" aria-label="सेवा खोजें">
+ <div id="home"><h2>सेवा विभाग चुनें</h2><div id="categories" class="grid"></div></div>
+ <div id="department" class="hidden"><button id="back" class="back">← सभी विभागों पर वापस जाएँ</button><h2 id="deptTitle" class="page-title"></h2><div id="deptCount" class="count"></div><div id="serviceGrid" class="grid"></div></div>
+ <div id="searchResults" class="hidden"></div><div id="empty" class="empty">इस नाम से कोई सेवा नहीं मिली। दूसरा शब्द खोजें।</div>
+</main>
+<footer>MAHILANG ONLINE SERVICES · लिंक संबंधित विभागों की वेबसाइटों पर खुलेंगे।<br>निर्माता: चोवाराम महिलांग<br>यह स्वतंत्र लिंक निर्देशिका है; किसी सरकारी विभाग से संबद्ध होने का दावा नहीं करती।</footer>
+<script>
+const data = [
+["छत्तीसगढ़ सरकारी सेवाएँ",[
+["छत्तीसगढ़ ई-जिला / प्रमाण-पत्र","https://edistrict.cgstate.gov.in/","जहाँ उपलब्ध हो वहाँ नागरिक आवेदन और आवेदन स्थिति।"],
+["छत्तीसगढ़ शासन","https://cgstate.gov.in/","राज्य शासन की आधिकारिक जानकारी।"],
+["भुइयाँ – खसरा / बी-1","https://bhuiyan.cg.nic.in/","भूमि रिकॉर्ड की जानकारी।"],
+["भू-नक्शा छत्तीसगढ़","https://bhunaksha.cg.nic.in/","भूमि नक्शे की सुविधा।"],
+["CSPDCL बिजली विभाग","https://www.cspdcl.co.in/","बिजली बिल और उपभोक्ता सेवाएँ।"],
+["छत्तीसगढ़ खाद्य विभाग","https://khadya.cg.nic.in/","राशन और खाद्य विभाग की जानकारी।"],
+["CGPSC","https://psc.cg.gov.in/","राज्य लोक सेवा आयोग।"],
+["CG Vyapam","https://vyapam.cgstate.gov.in/","परीक्षा और भर्ती सूचनाएँ।"],
+["छत्तीसगढ़ रोजगार","https://erojgar.cg.gov.in/","रोजगार पंजीयन और जानकारी; उपलब्धता जाँचें।"]
+]],
+["केंद्र सरकार एवं पहचान सेवाएँ",[
+["UIDAI – आधार","https://uidai.gov.in/","आधार की आधिकारिक सेवाएँ।"],
+["PAN / Income Tax","https://www.incometax.gov.in/","पैन और आयकर संबंधी सेवाएँ।"],
+["Protean PAN Services","https://tinpan.proteantech.in/","पैन सेवाओं का आधिकारिक सेवा पोर्टल।"],
+["Voters’ Service Portal","https://voters.eci.gov.in/","मतदाता पंजीयन और सेवाएँ।"],
+["Passport Seva","https://www.passportindia.gov.in/","पासपोर्ट आवेदन और स्थिति।"],
+["Parivahan","https://parivahan.gov.in/","ड्राइविंग लाइसेंस और वाहन सेवाएँ।"],
+["e-Challan","https://echallan.parivahan.gov.in/","ई-चालान की जानकारी और भुगतान।"],
+["DigiLocker","https://www.digilocker.gov.in/","डिजिटल दस्तावेज और प्रमाण-पत्र।"],
+["UMANG","https://web.umang.gov.in/","केंद्र और राज्य की अनेक सेवाएँ।"],
+["e-Shram","https://eshram.gov.in/","असंगठित श्रमिकों की सरकारी सेवा।"],
+["EPFO","https://www.epfindia.gov.in/","कर्मचारी भविष्य निधि सेवाएँ।"]
+]],
+["किसान एवं कृषि सेवाएँ",[
+["PM-KISAN","https://pmkisan.gov.in/","योजना, लाभार्थी स्थिति और जानकारी।"],
+["कृषि एवं किसान कल्याण विभाग","https://agriwelfare.gov.in/","कृषि योजनाएँ और विभागीय जानकारी।"],
+["Agmarknet मंडी भाव","https://agmarknet.gov.in/","कृषि मंडियों के भाव।"],
+["e-NAM","https://www.enam.gov.in/","राष्ट्रीय कृषि बाजार।"],
+["Soil Health Card","https://soilhealth.dac.gov.in/","मृदा स्वास्थ्य कार्ड सेवाएँ।"],
+["IMD मौसम","https://mausam.imd.gov.in/","मौसम पूर्वानुमान और चेतावनी।"]
+]],
+["शिक्षा एवं छात्रवृत्ति",[
+["National Scholarship Portal","https://scholarships.gov.in/","राष्ट्रीय छात्रवृत्ति आवेदन और जानकारी।"],
+["CBSE","https://www.cbse.gov.in/","बोर्ड परीक्षा और परिणाम लिंक।"],
+["UGC","https://www.ugc.gov.in/","विश्वविद्यालय और उच्च शिक्षा जानकारी।"],
+["SWAYAM","https://swayam.gov.in/","ऑनलाइन पाठ्यक्रम।"],
+["NTA","https://nta.ac.in/","राष्ट्रीय परीक्षा एजेंसी की जानकारी।"]
+]],
+["रोजगार, व्यवसाय एवं सरकारी योजनाएँ",[
+["National Career Service","https://www.ncs.gov.in/","नौकरी खोज और रोजगार सेवाएँ।"],
+["Skill India Digital","https://www.skillindiadigital.gov.in/","कौशल प्रशिक्षण और पाठ्यक्रम।"],
+["Udyam Registration","https://udyamregistration.gov.in/","MSME उद्यम पंजीयन; सरकारी पोर्टल।"],
+["GST Portal","https://www.gst.gov.in/","GST पंजीयन और कर सेवाएँ।"],
+["MCA","https://www.mca.gov.in/","कंपनी मामलों की सरकारी सेवाएँ।"],
+["Startup India","https://www.startupindia.gov.in/","स्टार्टअप संबंधी जानकारी।"],
+["GeM","https://gem.gov.in/","सरकारी ई-मार्केटप्लेस।"],
+["MyScheme","https://www.myscheme.gov.in/","सरकारी योजनाएँ और पात्रता जानकारी।"]
+]],
+["स्वास्थ्य, पेंशन एवं शिकायत",[
+["Ayushman Bharat PM-JAY","https://pmjay.gov.in/","आयुष्मान भारत योजना की जानकारी।"],
+["ABHA","https://abha.abdm.gov.in/","आयुष्मान भारत हेल्थ अकाउंट।"],
+["National Health Mission","https://nhm.gov.in/","राष्ट्रीय स्वास्थ्य मिशन।"],
+["ORS अस्पताल सेवाएँ","https://ors.gov.in/","ऑनलाइन अस्पताल सेवाएँ जहाँ उपलब्ध हों।"],
+["NSAP पेंशन","https://nsap.nic.in/","राष्ट्रीय सामाजिक सहायता कार्यक्रम।"],
+["Jeevan Pramaan","https://jeevanpramaan.gov.in/","डिजिटल जीवन प्रमाण-पत्र।"],
+["CPGRAMS शिकायत","https://pgportal.gov.in/","केंद्र सरकार की सार्वजनिक शिकायत।"],
+["RTI Online","https://rtionline.gov.in/","केंद्र सरकार के मंत्रालयों/विभागों के लिए ऑनलाइन RTI।"]
+]],
+["बिल एवं उपयोगी डिजिटल टूल",[
+["Bharat BillPay","https://www.bharatbillpay.com/","बिल भुगतान नेटवर्क की जानकारी; उपलब्ध सेवा जाँचें।"],
+["My LPG","https://www.mylpg.in/","LPG सेवाओं की जानकारी।"],
+["Google Forms","https://forms.google.com/","ऑनलाइन फॉर्म बनाना।"],
+["Google Docs","https://docs.google.com/","ऑनलाइन दस्तावेज।"],
+["Google Sheets","https://sheets.google.com/","स्प्रेडशीट।"],
+["Canva","https://www.canva.com/","पोस्टर और डिजाइन।"],
+["iLovePDF","https://www.ilovepdf.com/","PDF टूल; संवेदनशील दस्तावेज अपलोड करने से बचें।"],
+["iLoveIMG","https://www.iloveimg.com/","फोटो टूल; निजी तस्वीरों की गोपनीयता जाँचें।"]
+]]
+];
+const home=document.getElementById('home'), department=document.getElementById('department');
+const categories=document.getElementById('categories'), deptTitle=document.getElementById('deptTitle');
+const deptCount=document.getElementById('deptCount'), serviceGrid=document.getElementById('serviceGrid');
+const searchResults=document.getElementById('searchResults'), search=document.getElementById('search');
+const empty=document.getElementById('empty');
+let current=-1;
+function makeServiceCard(item){
+ const [name,url,desc]=item, card=document.createElement('article');card.className='card';
+ const h=document.createElement('h3');h.textContent=name;
+ const p=document.createElement('p');p.textContent=desc;
+ const a=document.createElement('a');a.className='open';a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='आधिकारिक वेबसाइट खोलें ↗';
+ card.append(h,p,a);return card;
+}
+function showHome(){
+ current=-1;search.value='';home.classList.remove('hidden');department.classList.add('hidden');searchResults.classList.add('hidden');empty.style.display='none';
+ history.replaceState(null,'',location.pathname);
+}
+function openDepartment(i){
+ current=i;home.classList.add('hidden');searchResults.classList.add('hidden');department.classList.remove('hidden');empty.style.display='none';
+ deptTitle.textContent=data[i][0];deptCount.textContent=data[i][1].length+' सेवाएँ उपलब्ध';
+ serviceGrid.innerHTML='';data[i][1].forEach(item=>serviceGrid.appendChild(makeServiceCard(item)));
+ search.value='';history.replaceState(null,'','#dept-'+(i+1));
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+data.forEach(([name,items],i)=>{
+ const card=document.createElement('article');card.className='card';
+ const h=document.createElement('h3');h.textContent=name;
+ const p=document.createElement('p');p.textContent=items.length+' उपयोगी वेबसाइट और सेवाएँ';
+ const b=document.createElement('button');b.className='open';b.textContent='विभाग खोलें →';b.onclick=()=>openDepartment(i);
+ card.append(h,p,b);categories.appendChild(card);
+});
+document.getElementById('back').onclick=showHome;
+search.addEventListener('input',()=>{
+ const q=search.value.trim().toLocaleLowerCase('hi');
+ if(!q){if(current>=0)openDepartment(current);else showHome();return;}
+ home.classList.add('hidden');department.classList.add('hidden');searchResults.classList.remove('hidden');searchResults.innerHTML='';
+ let total=0;
+ data.forEach(([cat,items])=>{
+  const matches=items.filter(([n,u,d])=>(n+' '+d+' '+cat).toLocaleLowerCase('hi').includes(q));
+  if(!matches.length)return;total+=matches.length;
+  const sec=document.createElement('section'),h=document.createElement('h2'),g=document.createElement('div');h.textContent=cat;g.className='grid';
+  matches.forEach(item=>g.appendChild(makeServiceCard(item)));sec.append(h,g);searchResults.appendChild(sec);
+ });
+ empty.style.display=total?'none':'block';
+});
+</script></body></html>
